@@ -1,0 +1,21 @@
+<div class="user_page">
+  <header class="user_page-header">
+    <div class="yjContainer">
+        <h2><%= current_user.nickname %> <span>さんのマイページ</span></h2>
+    </div>
+  </header>
+</div>
+
+<div class="contents">
+  <p>出品した商品一覧</p>
+  <% current_user.books.each do |book| %>
+    <h2 class="title h1"="<%= book.title %>">
+      <%= book.title %>
+    </h2>
+    <div class="book_image"><%= image_tag book.goods %>
+    <%= link_to "詳細", book_path(book.id), method: :get %></div>
+    <ul class="col">
+      <a href="/books/<%= book.id %>"></a>
+    </ul>
+  <% end %>
+</div>

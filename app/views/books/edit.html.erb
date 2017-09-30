@@ -1,0 +1,18 @@
+<div>
+    <h3>
+      編集する
+    </h3>
+    <%= form_for @book do |f| %>
+    <div class="field">
+    <%= f.file_field :goods %>
+    </div>
+      <%= f.text_field :title %>
+      <%= f.text_field :category %>
+      <%= f.text_field :cluster %>
+      <%= f.number_field :price %>
+      <%= f.text_field :author %>
+      <%= f.text_field :condition %>
+      <%= f.text_area :detail %>
+      <%= f.submit %>
+    <% end %>
+</div>

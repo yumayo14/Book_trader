@@ -1,0 +1,28 @@
+<div>
+    <h3>
+      投稿する
+    </h3>
+    <%= form_for @book do |f| %>
+    <div class="field">
+    <%= f.file_field :goods %>
+    </div>
+      <%= f.text_field :title %>
+      <%= f.text_field :category %>
+      <%= f.text_field :cluster %>
+      <%= f.number_field :price %>
+      <%= f.text_field :author %>
+      <%= f.text_field :condition %>
+      <%= f.text_area :detail %>
+      <%= f.submit %>
+    <% end %>
+</div>
+
+<!--
+<input placeholder="タイトル" type="string" name="title">
+      <input placeholder="分類" type="string" name="category">
+      <input placeholder="クラスター" type="string" name="cluster">
+      <input placeholder="価格" type="integer" name="price">
+      <input placeholder="著者" type="string" name="author">
+      <input placeholder="本の状態" type="text" name="condition">
+      <<textarea cols="30" name="detail" placeholder="商品の説明" rows="10"></textarea>
+      <input type="submit" value="SENT"> -->

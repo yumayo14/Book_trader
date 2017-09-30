@@ -1,0 +1,18 @@
+<div class="container row @media (min-width: 992px)">
+  <h1 class="text-middle">
+    <i class="icon-movie color-gray-light"></i>新着作品
+  </h1>
+  <ul class="all_books">
+    <% @books.each do |book| %>
+    <h2 class="title h1"="<%= book.title %>">
+      <%= book.title %>
+    </h2>
+    <div class="book_image"><%= image_tag book.goods %>
+    <%= link_to "詳細", book_path(book.id), method: :get %></div>
+    <ul class="col">
+      <a href="/books/<%= book.id %>"></a>
+    </ul>
+    <% end %>
+  </ul>
+</div>
+  <%= paginate(@books) %>

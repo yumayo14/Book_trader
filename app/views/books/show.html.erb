@@ -1,0 +1,69 @@
+<header class="header header--section">
+  <h1 class="text-middle">
+    <i class="icon-movie color-gray-light"></i><%= @book.title %>
+  </h1>
+</header>
+<div class="container">
+    <div class="book_image"><%= image_tag @book.goods %></div>
+    <table class="table table-bordered">
+      <tr>
+        <th>出品者名</th>
+        <td><%= @book.user.nickname %></td>
+      </tr>
+      <tr>
+        <th>カテゴリー</th>
+        <td><%= @book.category %></td>
+      </tr>
+      <tr>
+        <th>クラスター</th>
+        <td><%= @book.cluster %></td>
+      </tr>
+      <tr>
+        <th>値段</th>
+        <td><%= @book.price %></td>
+      </tr>
+      <tr>
+        <th>著者</th>
+        <td><%= @book.author %></td>
+      </tr>
+      <tr>
+        <th>本の状態</th>
+        <td><%= @book.condition %></td>
+      </tr>
+    </table>
+
+  <div class="container">
+    <span class="label comment-post">
+      <h2>
+        <%= link_to "コメントを投稿", new_book_comment_path(@book), method: :get %>
+      </h2>
+    </span>
+    <span>
+      <% @book.comments.each do |c| %>
+        <a href="/books/<%= c.id %>"></a>
+        <h3 class="text-xsmall text-overflow" title="<%= c.comment %>">
+          <%= c.nickname %>
+        </h3>
+        <h3 class="text-xsmall text-overflow" title="<%= c.comment %>">
+          <%= c.comment %>
+        </h3>
+      <% end %>
+    </span>
+  </div>
+
+  <div class="container">
+    <% if user_signed_in? && current_user.id == @book.user_id  %>
+      <span class="label">
+        <h2>
+          <%= link_to '削除', "/books/#{@book.id}", method: :delete %>
+        </h2>
+      </span>
+      <span class="label">
+        <h2>
+          <%= link_to '編集', "/books/#{@book.id}/edit", method: :get %>
+        </h2>
+      </span>
+    <% end %>
+  </div>
+
+</div>
