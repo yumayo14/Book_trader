@@ -2,10 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+.section{
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.goods-picture{
+  height: 50px;
+}
+
 ul li {
   margin: 0;
   float: left;
   padding-right: 10px;
+}
+
+.book-title {
+  font-size: 24px;
+  text-align: center;
+}
+
+.detail-area{
+  width: 300px;
 }
 
 .comment-post {

@@ -1,10 +1,12 @@
-<div class="container row @media (min-width: 992px)">
-  <h1 class="text-middle">
-    <i class="icon-movie color-gray-light"></i>新着作品
+<div class="container row">
+<div class="genre">
+  <h1 class="section h2 te">
+    作品一覧
   </h1>
+</div>
   <ul class="all_books">
     <% @books.each do |book| %>
-    <h2 class="title h1"="<%= book.title %>">
+    <h2 class="title h3"="<%= book.title %>">
       <%= book.title %>
     </h2>
     <div class="book_image"><%= image_tag book.goods %>
