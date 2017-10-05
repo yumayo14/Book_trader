@@ -3,11 +3,15 @@
       <h2 class="text-middle">
         <i class="icon-movie color-gray-light"></i>投稿する作品を検索
       </h2>
-    <%= form_tag('/books/search', method: :get) do%>
-    <input class="search__query" name="keyword" placeholder="作品名で検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
-    <% end %>
+
     </header>
   </div>
+
+    <%= form_tag('/books/search', method: :get) do%>
+
+      <input class="search__query" name="keyword" placeholder="作品名で検索" type="text" value=""><button class="btn-search" title="検索" type="submit"></button><i class="icon-search"></i></input>
+
+    <% end %>
 
   <div class="container row">
     <h2 class="text-middle">
@@ -27,4 +31,5 @@
     </ul>
   <%= paginate(@books) %>
 </div>
+
 
