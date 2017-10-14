@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :move_to_index, except: :index
+  before_action :authenticate_user!, except: :index
 
   def index
     @books = Book.order('id ASC').page(params[:page]).per(10)
@@ -46,12 +46,9 @@ class BooksController < ApplicationController
 
   private
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
-  end
-
   def book_params
     params.require(:book).permit(:title, :category, :cluster, :price, :author, :condition, :detail, :goods).merge(user_id: current_user.id)
   end
-
 end
+
+

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  # get 'books/new' => 'books#new'
-  # post 'books' => 'books#create'
   root 'books#index'
   resources :users, only: :show
   resources :books do

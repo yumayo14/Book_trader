@@ -1,12 +1,15 @@
 
-
 <div class="container">
+  <div class="name-and-picture">
     <div class="book-title">
-      <h1>
-        <i class="icon-movie color-gray-light"></i><%= @book.title %>
+      <h1 class= "h1">
+        <%= @book.title %>
       </h1>
     </div>
-    <div class="book_image"><%= image_tag @book.goods %></div>
+    <div class="book-image"><%= image_tag @book.goods, :class => "img-thumbnail" %>
+    </div>
+  </div>
+
     <table class="table table-bordered">
       <tr>
         <th>出品者名</th>
@@ -34,39 +37,40 @@
       </tr>
     </table>
 
-  <div class="container">
-    <span class="label comment-post">
-      <h2>
-        <%= link_to "コメントを投稿", new_book_comment_path(@book), method: :get %>
-      </h2>
-    </span>
-    <div>
-      <% @book.comments.each do |c| %>
-        <div class="poster">
-          <a href="/books/<%= c.id %>"></a>
-          <h3 class="text-xsmall text-overflow" title="<%= c.comment %>">投稿者: <%= c.nickname %>
-          </h3>
-        </div>
-        <div class="content">
-          <h3 class="text-xsmall text-overflow" title="<%= c.comment %>">
-            <%= c.comment %>
-          </h3>
-        </div>
-      <% end %>
+  <% @book.comments.each do |c| %>
+    <div class="media over-margin">
+      <div class="media-left">
+        <%= image_tag c.user.avatar.url(:small), :class => "img-circle"%>
+      </div>
+      <div class="media-body media-middle">
+        <h4 class="media-heading h4">
+          <%= c.user.nickname %>
+        </h4>
+      </div>
+      <div class="well media-object h6">
+        <h6>
+          <%= c.comment %>
+        </h6>
+      </div>
     </div>
-  </div>
+    <% end %>
 
   <div class="container">
+    <span class="label">
+      <h3 class="h3">
+        <%= link_to "コメントを投稿", new_book_comment_path(@book), method: :get %>
+      </h3>
+    </span>
     <% if user_signed_in? && current_user.id == @book.user_id  %>
       <span class="label">
-        <h2>
+        <h3 class="h3">
           <%= link_to '削除', "/books/#{@book.id}", method: :delete %>
-        </h2>
+        </h3>
       </span>
       <span class="label">
-        <h2>
+        <h3 class="h3">
           <%= link_to '編集', "/books/#{@book.id}/edit", method: :get %>
-        </h2>
+        </h3>
       </span>
     <% end %>
   </div>

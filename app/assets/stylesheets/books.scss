@@ -3,13 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
 .section{
   border-bottom: 2px solid #ddd;
   padding-bottom: 10px;
 }
 
-.selling-form{
+.form{
   margin-top: 20px;
 }
 
@@ -17,10 +16,27 @@
   height: 50px;
 }
 
-ul li {
-  margin: 0;
-  float: left;
-  padding-right: 10px;
+.space{
+  margin-right:10px;
+}
+
+.col-sm-4 .book-image-tag{
+  width:300px;
+  height:300px;
+  margin-right:300px;
+}
+
+.certification_wrapper{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.each-book{
+
+}
+
+.name-and-picture{
+  margin: 30px 0px 80px;
 }
 
 .book-title {
@@ -28,11 +44,18 @@ ul li {
   text-align: center;
 }
 
+.book-image {
+  text-align: center;
+}
+
+.over-margin{
+  margin-top: 15px;
+}
+
 .detail-area{
   width: 300px;
 }
 
-.comment-post {
-  font-size: 21px;
-}
+
+
 

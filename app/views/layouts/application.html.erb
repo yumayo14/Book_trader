@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BookTrader</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<header class="header">
-  <div class = "heading">
-    <h1 class="title h3">Book Trader</h1>
-  </div>
-  <div class="navbar">
-    <% if user_signed_in? %>
-        <ul>
-          <li><%= link_to "ホーム", root_path, mothod: :get %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "出品する", new_book_path, method: :get %></li>
-          <li><%= link_to "検索", search_books_path,method: :get %></li>
-          <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
-        </ul>
-    <% else %>
-      <ul>
-        <li><%= link_to "ホーム", root_path, mothod: :get %></li>
-        <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
-        <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
-      </ul>
-      </div>
-    <% end %>
-  </div>
-</header>
-  <%= yield %>
-
-</body>
+  <head>
+    <title>BookTrader</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+      <nav class= "navbar">
+        <div class= "container-fluid">
+          <div class= "navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="menu-list" aria-expanded="false">
+            </button>
+              <h3 class="navbar-brand space ">Book Trader</h3>
+          </div>
+              <% if user_signed_in? %>
+              <div class="collapse navbar-collapse" id="menu-list">
+                <ul class="nav navbar-nav">
+                  <li class="space"><%= link_to "ホーム", root_path, method: :get %></li>
+                  <li class="space"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                  <li class="space"><%= link_to "出品する", new_book_path, method: :get %></li>
+                  <li class="space"><%= link_to "検索", search_books_path,method: :get %></li>
+                  <li class="space"><a href="/users/<%= current_user.id %>">マイページ</a></li>
+                </ul>
+              </div>
+              <% else %>
+              <div class="collapse navbar-collapse list" id="menu-list">
+                <ul class="nav navbar-nav">
+                <ul>
+                  <li class="space"><%= link_to "ホーム", root_path, mothod: :get %></li>
+                  <li class="space"><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+                  <li class="space"><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+                </ul>
+              </div>
+            <% end %>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <%= yield %>
+  </body>
 </html>

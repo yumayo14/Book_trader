@@ -1,16 +1,16 @@
-<div class="user-confirmation">
-  <h2>Log in</h2>
+<div class="user-confirmation container">
+  <h3 class="h3 section">Log in</h3>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <div class="form-group">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.text_field :email, autofocus: true, class: "form-control" %>
     </div>
 
     <div class="form-group">
       <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.text_field :password, autocomplete: "off", class: "form-control" %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
