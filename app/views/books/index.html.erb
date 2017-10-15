@@ -1,20 +1,27 @@
 <div class="container">
-  <h2 class="section h2">
+  <div class="container index-sort">
+    <h2 class="section ">
     作品一覧
-  </h2>
-    <ul class="flexbox all_books">
-      <div class="row">
-        <% @books.each do |book| %>
-          <li class="each book col-xs-4">
-            <div class="book-title">
-              <%= book.title %>
-            </div>
-            <div class="book-image">
-              <%= link_to image_tag(book.goods, :class => "img-thumbnail"), book_path(book.id), method: :get %>
-            </div>
-          </li>
-        <% end %>
-     </div>
+    </h2>
+  </div>
+  <div class="container index">
+    <ul class="all_books">
+      <div class="row flex">
+          <% @books.each do |book| %>
+            <li class="col-sm-4 col-md-3">
+              <div class="book-image">
+                <%= link_to image_tag(book.goods, :class => "img-thumbnail"), book_path(book.id), method: :get %>
+              </div>
+              <div class="book-title">
+                <h3><%= book.title %></h3>
+              </div>
+              <div class="book-price">
+                <h3>¥<%= book.price %></h3>
+              </div>
+            </li>
+          <% end %>
+      </div>
     </ul>
-</div>
+  </div>
   <%= paginate(@books) %>
+</div>

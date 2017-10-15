@@ -3,6 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+html{
+  font-size: 14px;
+}
+
+h1{
+  font-size: 250%;
+}
+
+h2{
+  font-size: 200%;
+}
+
+h3{
+  font-size:150%;
+}
+
+.flex {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.index-sort{
+  margin-bottom: 30px;
+}
+
 .section{
   border-bottom: 2px solid #ddd;
   padding-bottom: 10px;
@@ -32,7 +58,7 @@
 }
 
 .each-book{
-
+  margin-bottom: 20px;
 }
 
 .name-and-picture{
@@ -40,12 +66,17 @@
 }
 
 .book-title {
-  font-size: 24px;
   text-align: center;
+  margin: 20px 0px;
 }
 
 .book-image {
   text-align: center;
+}
+
+.book-price{
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .over-margin{

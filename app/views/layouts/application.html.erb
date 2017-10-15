@@ -27,8 +27,7 @@
               <% else %>
               <div class="collapse navbar-collapse list" id="menu-list">
                 <ul class="nav navbar-nav">
-                <ul>
-                  <li class="space"><%= link_to "ホーム", root_path, mothod: :get %></li>
+                  <li class="space"><%= link_to "ホーム", root_path, method: :get %></li>
                   <li class="space"><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
                   <li class="space"><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
                 </ul>

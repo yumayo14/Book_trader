@@ -1,12 +1,13 @@
 <div class="user_page">
   <div class="container">
+    <%= image_tag current_user.avatar.url(:small), :class => "img-circle"%>
     <h2 class="text-middle h2"><%= current_user.nickname %> <span>さんのマイページ</span></h2>
   </div>
 </div>
 <div class="container">
   <h3 class="text-middle h3 section">出品した商品一覧</h3>
-    <ul class="flexbox all_books">
-      <div class="contents row">
+    <ul class="user_books">
+      <div class="row flex">
           <% current_user.books.each do |book| %>
             <li class="each book col-xs-4">
               <div class="book-title">
