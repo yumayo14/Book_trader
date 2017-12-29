@@ -12,14 +12,12 @@ class BooksController < ApplicationController
 
   def create
     Book.create(book_params)
-    # @book = current_user.books.new(book_params)
-    # @book.save
-    # binding.pry
-    # redirect_to action: :index
+    redirect_to action: :index
   end
 
   def show
     @book = Book.find(params[:id])
+    @comment = Comment.new
   end
 
   def destroy

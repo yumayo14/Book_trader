@@ -1,0 +1,17 @@
+.container
+  .container.index-sort
+    %h2.section
+      作品一覧
+  .container.index
+    %ul.all_books
+      .row.flex
+        - @books.each do |book|
+          %li.col-sm-4.col-md-3
+            .book-image
+              = link_to image_tag(book.goods, :class => "img-thumbnail"), book_path(book.id), method: :get
+            .book-title
+              %h3= book.title
+            .book-price
+              %h3
+                ¥#{book.price}
+  = paginate(@books)
