@@ -1,0 +1,59 @@
+.form
+  = form_for @book do |f|
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title 出品画像（必須）
+      .goods-picture.form
+        = f.file_field :goods
+      .panel-heading
+        %h3.panel-title 本の名前（必須）
+      .panel-body
+        = f.text_field :title
+      .panel-heading
+        %h3.panel-title カテゴリー（必須）
+      .panel-body
+        %select#book_category{:name => "book[category]", :type => "text"}
+          %option{:value => "教養科目"} 教養科目
+          %option{:value => "専門科目(APS)"} 専門科目(APS)
+          %option{:value => "専門科目(APM)"} 専門科目(APM)
+          %option{:value => "言語科目"} 言語科目
+      .panel-heading
+        %h3.panel-title クラスター
+      .panel-body
+        %select#book_cluster{:name => "book[cluster]", :type => "text"}
+          %option{:value => "環境・開発"} 環境・開発(APS専門)
+          %option{:value => "観光学"} 観光学(APS)
+          %option{:value => "文化・社会・メディア"} 文化・社会・メディア(APS専門)
+          %option{:value => "国際関係"} 国際関係(APS専門)
+          %option{:value => "経営戦略と組織"} 経営戦略と組織(APM専門)
+          %option{:value => "イノベーション・経済学"} イノベーション・経済学(APM専門)
+          %option{:value => "マーケティング"} マーケティング(APM専門)
+          %option{:value => "会計・ファイナンス"} 会計・ファイナンス(APM専門)
+          %option{:value => "教養科目"} 教養科目
+          %option{:value => "言語科目"} 言語科目
+      .panel-heading
+        %h3.panel-title 価格（必須）
+      .panel-body
+        = f.number_field :price
+      .panel-heading
+        %h3.panel-title 著者名
+      .panel-body
+        = f.text_field :author
+      .panel-heading
+        %h3.panel-title 本の状態（必須）
+      .panel-body
+        = f.text_field :condition
+      .panel-heading
+        %h3.panel-title 詳細
+      .panel-body
+        = f.text_area :detail,class:"detail-area"
+      = f.submit
+    /
+      <input placeholder="タイトル" type="string" name="title">
+      <input placeholder="分類" type="string" name="category">
+      <input placeholder="クラスター" type="string" name="cluster">
+      <input placeholder="価格" type="integer" name="price">
+      <input placeholder="著者" type="string" name="author">
+      <input placeholder="本の状態" type="text" name="condition">
+      <<textarea cols="30" name="detail" placeholder="商品の説明" rows="10"></textarea>
+      <input type="submit" value="SENT">

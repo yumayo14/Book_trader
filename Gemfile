@@ -52,5 +52,7 @@ end
   gem 'devise'
   gem 'paperclip'
   gem 'kaminari'
+  gem 'haml-rails'
+  gem 'erb2haml'
 
   gem "bundler"

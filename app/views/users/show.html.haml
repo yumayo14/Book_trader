@@ -1,0 +1,16 @@
+.user_page
+  .container
+    = image_tag current_user.avatar.url(:small), :class => "img-circle"
+    %h2.text-middle.h2
+      = current_user.nickname
+      %span さんのマイページ
+.container
+  %h3.text-middle.h3.section 出品した商品一覧
+  %ul.user_books
+    .row.flex
+      - current_user.books.each do |book|
+        %li.each.book.col-xs-4
+          .book-title
+            = book.title
+          .book-image
+            = link_to image_tag(book.goods, :class => "img-thumbnail"), book_path(book.id), method: :get

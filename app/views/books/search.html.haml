@@ -1,0 +1,24 @@
+.containar
+  .container
+    .page-info
+      %h3.text-middle.h3
+        投稿する作品を検索
+    .input-group
+      = form_tag('/books/search', method: :get) do
+        %input.form-control{:name => "keyword", :placeholder => "作品名で検索", :type => "text", :value => ""}/
+        %button.btn.btn-default{:title => "検索", :type => "button"} 検索する
+  .container
+    %h3.text-middle.h3.section
+      検索結果
+    %ul.all_books
+      .row.flex
+        - @books.each do |book|
+          %li.col-sm-4.col-md-3
+            .book-image
+              = link_to image_tag(book.goods, :class => "img-thumbnail"), book_path(book.id), method: :get
+            .book-title
+              %h3= book.title
+            .book-price
+              %h3
+                ¥#{book.price}
+    = paginate(@books)

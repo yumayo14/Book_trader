@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BookTrader
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "menu-list", "data-toggle" => "collapse", :type => "button"}
+          = link_to root_path do
+            %h3.navbar-brand.space Book Trader
+        - if user_signed_in?
+          #menu-list.collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li.space= link_to "ログアウト", destroy_user_session_path, method: :delete
+              %li.space= link_to "出品する", new_book_path, method: :get
+              %li.space= link_to "検索", search_books_path,method: :get
+              %li.space
+                %a{:href => "/users/#{current_user.id}"} マイページ
+        - else
+          #menu-list.collapse.navbar-collapse.list
+            %ul.nav.navbar-nav
+              %li.space= link_to "ホーム", root_path, method: :get
+              %li.space= link_to "ログイン", new_user_session_path, class: 'post'
+              %li.space= link_to "新規登録", new_user_registration_path, class: 'post'
+    = yield
