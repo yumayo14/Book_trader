@@ -8,7 +8,7 @@
       .panel-heading
         %h3.panel-title 本の名前（必須）
       .panel-body
-        = f.text_field :title
+        = f.text_field :title, placeholder: "必須項目"
       .panel-heading
         %h3.panel-title カテゴリー（必須）
       .panel-body
@@ -34,15 +34,15 @@
       .panel-heading
         %h3.panel-title 価格（必須）
       .panel-body
-        = f.number_field :price
+        = f.number_field :price, placeholder: "必須項目"
       .panel-heading
         %h3.panel-title 著者名
       .panel-body
-        = f.text_field :author
+        = f.text_field :author, placeholder: "必須項目"
       .panel-heading
         %h3.panel-title 本の状態（必須）
       .panel-body
-        = f.text_field :condition
+        = f.text_field :condition, placeholder: "必須項目"
       .panel-heading
         %h3.panel-title 詳細
       .panel-body
